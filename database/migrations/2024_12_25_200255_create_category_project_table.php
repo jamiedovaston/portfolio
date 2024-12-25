@@ -9,13 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('code_langs', function (Blueprint $table) {
+        Schema::create('category_project', function (Blueprint $table) {
             $table->id();
-            $table->string('icon');
-            $table->string('name');
-            $table->string('slug')->unique(); // Unique slug for each language
+            $table->foreignId('category_id')->constrained()->onDelete('cascade');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('code_langs');
+        Schema::dropIfExists('category_project');
     }
 };

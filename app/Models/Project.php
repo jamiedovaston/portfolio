@@ -9,38 +9,36 @@ class Project extends Model
 {
     use HasFactory;
 
+    // Fillable properties
     protected $fillable = [
-        'featured',
-        'name',
+        'title',
         'description',
-        'body_text',
-        'slug',
-        'code_lang_id',
-        'repo',
-        'itch_page',
-        'tags',
-        'order'
+        'images',
+        'video',
+        'background_image',
+        'body',
+        'links',
     ];
 
+    // Cast attributes to handle JSON fields
     protected $casts = [
-        'tags' => 'array', // Cast tags as an array
+        'images' => 'array', // Store the list of images as JSON
+        'links' => 'array', // Store links data as JSON
     ];
 
-    // Ensure default order is by `order` column
-    protected static function booted()
+    /**
+     * Relationship: Many-to-Many with Tags
+     */
+    public function tags()
     {
-        static::addGlobalScope('ordered', function ($query) {
-            $query->orderBy('order');
-        });
+        return $this->belongsToMany(Tag::class, 'project_tag', 'project_id', 'tag_id');
     }
 
-    public function customLinks()
+    /**
+     * Relationship: Many-to-Many with Categories
+     */
+    public function categories()
     {
-        return $this->hasMany(CustomLink::class);
-    }
-
-    public function codeLang()
-    {
-        return $this->belongsTo(CodeLang::class);
+        return $this->belongsToMany(Category::class, 'category_project', 'project_id', 'category_id');
     }
 }

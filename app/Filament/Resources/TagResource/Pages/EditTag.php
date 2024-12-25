@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CodeLangResource\Pages;
+namespace App\Filament\Resources\TagResource\Pages;
 
-use App\Filament\Resources\CodeLangResource;
+use App\Filament\Resources\TagResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 
-class EditCodeLang extends EditRecord
+class EditTag extends EditRecord
 {
-    protected static string $resource = CodeLangResource::class;
+    protected static string $resource = TagResource::class;
 
     protected function getHeaderActions(): array
     {

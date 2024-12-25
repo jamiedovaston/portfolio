@@ -26,6 +26,10 @@
         {{ $slot }}
     </main>
 
+    @livewire('home-projects')
+
+    @include('layouts.footer')
+
     @livewireScripts
     </body>
 </html>

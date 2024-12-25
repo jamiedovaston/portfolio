@@ -9,14 +9,12 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up()
+    public function up(): void
     {
-        Schema::create('custom_links', function (Blueprint $table) {
+        Schema::create('project_tag', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('project_id')->constrained('projects')->onDelete('cascade'); // Links to projects table
-            $table->string('icon');
-            $table->string('name');
-            $table->string('link');
+            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->foreignId('project_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -26,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('custom_links');
+        Schema::dropIfExists('project_tag');
     }
 };

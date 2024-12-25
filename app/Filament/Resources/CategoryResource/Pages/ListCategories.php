@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CodeLangResource\Pages;
+namespace App\Filament\Resources\CategoryResource\Pages;
 
-use App\Filament\Resources\CodeLangResource;
+use App\Filament\Resources\CategoryResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListCodeLangs extends ListRecords
+class ListCategories extends ListRecords
 {
-    protected static string $resource = CodeLangResource::class;
+    protected static string $resource = CategoryResource::class;
 
     protected function getHeaderActions(): array
     {
