@@ -16,10 +16,14 @@
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-800 dark:border-gray-700">
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 border-b border-gray-100 text-primary-600 dark:text-primary-500 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:p-0 dark:hover:bg-gray-700 dark:hover:text-primary-500 lg:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                        <a wire:navigate href="{{ route('home') }}"
+                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('home') ? 'text-white bg-primary-700 lg:bg-transparent lg:text-primary-700 dark:text-white' : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent' }}"
+                           aria-current="page">Home</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Projects</a>
+                        <a wire:navigate href="{{ route('projects') }}"
+                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-white bg-primary-700 lg:bg-transparent lg:text-primary-700 dark:text-white' : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent' }}"
+                           aria-current="page">Projects</a>
                     </li>
                     <li>
                         <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Resources</a>

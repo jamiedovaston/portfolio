@@ -26,7 +26,10 @@
         {{ $slot }}
     </main>
 
+
+    @if (request()->routeIs('home')) {{-- Check if the current route is the home page --}}
     @livewire('home-projects')
+    @endif
 
     @include('layouts.footer')
 

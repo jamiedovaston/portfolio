@@ -17,8 +17,8 @@ class ProjectsIndex extends Component
             ->orderBy('created_at', 'desc')
             ->paginate(9); // 9 per page
 
-        return view('livewire.projects-index', [
+        return view('projects.index', [
             'projects' => $projects,
-        ]);
+        ])->layout('layouts.app');
     }
 }

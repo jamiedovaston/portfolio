@@ -9,7 +9,7 @@ use App\Livewire\Portal;
 
 Route::get('/', Portal::class)->name('home');
 
-Route::get('/projects', ProjectsIndex::class)->name('projects.index');
+Route::get('/projects', ProjectsIndex::class)->name('projects');
 Route::get('/projects/{id}', ProjectsShow::class)->name('projects.show');
 
 Route::middleware([

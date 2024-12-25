@@ -1,4 +1,4 @@
-<section class="container mx-auto mt-12 space-y-8">
+<section class="container mx-auto h-screen pt-10 mt-12 space-y-8">
     <h2 class="text-3xl font-bold text-gray-900 dark:text-white">All Projects</h2>
     <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($projects as $project)

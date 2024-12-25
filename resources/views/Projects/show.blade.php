@@ -1,4 +1,4 @@
-<section class="container mx-auto mt-12">
+<section class="container h-auto pb-10 pt-10 mx-auto mt-12">
     <!-- Project Title -->
     <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white">{{ $project->title }}</h1>
 
@@ -29,8 +29,10 @@
 
     <!-- Images -->
     <div class="grid grid-cols-1 gap-4 mt-8 sm:grid-cols-2 lg:grid-cols-3">
-        @foreach (json_decode($project->images, true) as $image)
-            <img class="w-full rounded-lg" src="{{ $image }}" alt="Project Image">
+        @foreach ($project->images as $image)
+            <img class="w-full rounded-lg" src="{{ asset('storage/' . $image['url']) }}" alt="Project Image">
+
+
         @endforeach
     </div>
 
@@ -38,7 +40,7 @@
     <div class="mt-6">
         <h3 class="text-xl font-bold text-gray-900 dark:text-white">Links</h3>
         <ul class="mt-2 space-y-2">
-            @foreach (json_decode($project->links, true) as $link)
+            @foreach ($project->links as $link)
                 <li>
                     <a href="{{ $link['url'] }}" target="_blank"
                        class="inline-flex items-center text-blue-500 hover:underline">
