@@ -17,15 +17,11 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased bg-white dark:bg-gray-900">
+    <body class="h-screen font-sans antialiased bg-white dark:bg-gray-900">
 
     @include('layouts.navigation')
 
-
-    <main>
-        {{ $slot }}
-    </main>
-
+    {{ $slot }}
 
     @if (request()->routeIs('home')) {{-- Check if the current route is the home page --}}
     @livewire('home-projects')
