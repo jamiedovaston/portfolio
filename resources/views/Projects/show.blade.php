@@ -51,4 +51,8 @@
             @endforeach
         </ul>
     </div>
+
+    <!-- Description -->
+    <div class="text-lg text-gray-700 dark:text-gray-300 mt-4">{!! $project->body !!}</div>
+
 </section>
