@@ -27,8 +27,6 @@
     @livewire('home-projects')
     @endif
 
-    @include('layouts.footer')
-
     @livewireScripts
     </body>
 </html>
