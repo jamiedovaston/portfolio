@@ -6,8 +6,8 @@
                 <!-- Card Image -->
                 <div class="w-full h-full overflow-hidden">
                     <img class="w-full h-full object-cover object-center transition duration-700 ease-in-out group-hover:brightness-50 group-hover:scale-105"
-                        src="{{ $project->background_image }}"
-                        alt="{{ $project->title }}"/>
+                         src="{{ $project->background_image }}"
+                         alt="{{ $project->title }}"/>
                 </div>
 
                 <!-- Border Effect -->
