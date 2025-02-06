@@ -1,12 +1,12 @@
 <section class="mt-30 bg-white pt-10 dark:bg-[#1c1c20] w-full">
     <div class="w-full bg-gray-850">
-        <div class="grid w-full px-4 py-8 mx-auto lg:grid lg:py-24">
+        <div class="grid w-full px-4 py-24 mx-auto">
             <div class="flex justify-center lg:col-span-7 items-center">
                 <div>
                     <h1 class="max-w-2xl mb-4 text-4xl py-4 font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                         Jamie Dovaston
                     </h1>
-                    <p class="max-w-2xl mb-6 font-bold text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+                    <p class="max-w-2xl mb-8 font-bold text-gray-500 text-lg dark:text-gray-400">
                         <span class="text-gray-300">Bsc/Hons Games Design and Programming Student at University of Staffordshire</span>
                     </p>
                 </div>
@@ -27,5 +27,5 @@
             </div>
         </div>
     </div>
-    <div class="w-full bg-gray-100 dark:bg-gray-900 px-4 py-24"></div>
+    <div class="w-full bg-gray-100 dark:bg-gray-900 h-24"></div>
 </section>
