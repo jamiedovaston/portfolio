@@ -1,5 +1,5 @@
 <header>
-    <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-900 dark:border-gray-900">
+    <nav class="bg-gray-100 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-900 dark:border-white">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a class="flex items-center space-x-3 rtl:space-x-reverse">
                 <svg class="pt-2 w-8 h-8 text-gray-800 dark:text-white inline-block align-middle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.58 164.09" aria-hidden="true">
@@ -27,22 +27,26 @@
                 </svg>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-900 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-900 md:dark:bg-gray-900 dark:border-gray-700">
+                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-900 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                     <li>
                         <a wire:navigate href="{{ route('home') }}"
-                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('home') ? 'text-white bg-primary-700 lg:bg-transparent lg:text-primary-700 dark:text-white' : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent' }}"
+                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('home') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
                            aria-current="page">Home</a>
                     </li>
                     <li>
                         <a wire:navigate href="{{ route('projects') }}"
-                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-white bg-primary-700 lg:bg-transparent lg:text-primary-700 dark:text-white' : 'text-gray-700 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent' }}"
+                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
                            aria-current="page">Projects</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Resources</a>
+                        <a wire:navigate href="{{ route('projects') }}"
+                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
+                           aria-current="page">Resources</a>
                     </li>
                     <li>
-                        <a href="#" class="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent dark:border-gray-700">Blog</a>
+                        <a wire:navigate href="{{ route('projects') }}"
+                           class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
+                           aria-current="page">Blog</a>
                     </li>
                 </ul>
             </div>
