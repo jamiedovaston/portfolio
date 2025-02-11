@@ -1,7 +1,8 @@
-<section class="mt-30 bg-white pt-10 dark:bg-[#1c1c20] w-full">
-    <div class="w-full bg-gray-850">
-        <div class="grid w-full px-4 py-24 mx-auto">
-            <div class="flex justify-center lg:col-span-7 items-center">
+<section class="header-bg w-full">
+    <div class="w-full bg-gray-100 dark:bg-gray-900 h-24"></div>
+    <div class="w-full px-4 py-24 mx-auto">
+        <div class="grid w-full">
+            <div class="flex justify-center items-center">
                 <div>
                     <h1 class="max-w-2xl mb-4 text-4xl py-4 font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
                         Jamie Dovaston
@@ -10,8 +11,7 @@
                         <span class="text-gray-500">Bsc/Hons Games Design and Programming Student at University of Staffordshire</span>
                     </p>
                 </div>
-                <div class="w-16">
-                </div>
+                <div class="w-16"></div>
                 <div class="flex justify-center items-center w-full max-w-[200px] max-h-[200px]">
                     <svg class="w-full h-auto text-gray-800 dark:text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.58 164.09">
                         <g>
@@ -27,5 +27,4 @@
             </div>
         </div>
     </div>
-    <div class="w-full bg-gray-100 dark:bg-gray-900 h-24"></div>
 </section>
