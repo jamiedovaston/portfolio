@@ -4,11 +4,11 @@
         <div class="grid w-full">
             <div class="flex justify-center items-center">
                 <div>
-                    <h1 class="max-w-2xl mb-4 text-4xl py-4 font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
+                    <h1 class="max-w-2xl mb-4 text-4xl py-4 font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-white">
                         Jamie Dovaston
                     </h1>
-                    <p class="max-w-2xl mb-8 font-bold text-gray-500 text-lg dark:text-gray-400">
-                        <span class="text-gray-500">Bsc/Hons Games Design and Programming Student at University of Staffordshire</span>
+                    <p class="max-w-2xl mb-8 font-bold text-gray-200 text-lg ">
+                        Bsc/Hons Games Design and Programming Student at University of Staffordshire
                     </p>
                 </div>
                 <div class="w-16"></div>
