@@ -28,22 +28,22 @@
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-900 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-                    <li>
+                    <li class="{{ \Illuminate\Support\Facades\Route::is('home') ?'border-gray-900 dark:border-white border-b' : ""}}">
                         <a wire:navigate href="{{ route('home') }}"
                            class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('home') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
                            aria-current="page">Home</a>
                     </li>
-                    <li>
+                    <li class="{{ \Illuminate\Support\Facades\Route::is('projects') ?'border-gray-900 dark:border-white border-b' : ""}}">
                         <a wire:navigate href="{{ route('projects') }}"
                            class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
                            aria-current="page">Projects</a>
                     </li>
-                    <li>
+                    <li class="{{ \Illuminate\Support\Facades\Route::is('projects') ?'border-gray-900 dark:border-white border-b' : ""}}">
                         <a wire:navigate href="{{ route('projects') }}"
                            class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
                            aria-current="page">Resources</a>
                     </li>
-                    <li>
+                    <li class="{{ \Illuminate\Support\Facades\Route::is('projects') ?'border-gray-900 dark:border-white border-b' : ""}}">
                         <a wire:navigate href="{{ route('projects') }}"
                            class="block py-2 pr-4 pl-3 rounded lg:p-0 {{ \Illuminate\Support\Facades\Route::is('projects') ? 'text-gray-700 dark:text-white' : 'text-gray-400 hover:text-gray-700 dark:text-gray-400 dark:hover:text-white' }}"
                            aria-current="page">Blog</a>
