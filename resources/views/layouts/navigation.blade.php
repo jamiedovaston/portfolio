@@ -1,7 +1,7 @@
 <header>
     <nav class="bg-gray-100 dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-900 dark:border-white">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ route('home') }}">
+            <a class="flex items-center space-x-3 rtl:space-x-reverse" href="{{ route('home') }}"npx>
                 <svg class="pt-2 w-8 h-8 text-gray-800 dark:text-white inline-block align-middle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 274.58 164.09" aria-hidden="true">
                     <g>
                         <path class="fill-gray-300" d="M118.84 0v27.12L46.98 68.61l23.27 13.44 48.59 28.06v27.11L23.27 82.04 0 68.61 86.29 18.79 118.84 0Z"></path>

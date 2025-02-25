@@ -2,9 +2,9 @@
     <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Featured Projects</h2>
     <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($featuredProjects as $project)
-            <a href="{{ route('projects.show', $project->id) }}" class="relative group w-full aspect-[16/9] rounded-lg overflow-hidden cursor-pointer shadow-lg">
+            <a href="{{ route('projects.show', $project->id) }}" class="relative group w-full aspect-[16/9] rounded-lg overflow-hidden cursor-pointer shadow-lg header-bg p-1.5">
                 <!-- Card Image -->
-                <div class="w-full h-full overflow-hidden">
+                <div class="w-full h-full overflow-hidden bg-gray-800">
                     <img class="w-full h-full object-cover object-center transition duration-700 ease-in-out group-hover:brightness-50 group-hover:scale-105"
                          src="{{ $project->background_image }}"
                          alt="{{ $project->title }}"/>
