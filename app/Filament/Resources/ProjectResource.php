@@ -21,6 +21,8 @@ use Illuminate\Support\Str;
 use Filament\Tables\Table;
 use Filament\Forms\form;
 use App\Filament\Resources\ProjectResource\Pages;
+use Filament\Forms\Components\Wizard;
+use Filament\Forms\Components\Builder;
 
 class ProjectResource extends Resource
 {
@@ -33,28 +35,103 @@ class ProjectResource extends Resource
     {
         return $form
             ->schema([
-                TextInput::make('title')
-                    ->label('Project Title')
-                    ->required()
-                    ->reactive()
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
-                    ->placeholder('Enter project title'),
+                Wizard::make([
+                    Wizard\Step::make('Details')
+                        ->schema([
+                            TextInput::make('title')
+                                ->label('Title')
+                                ->required()
+                                ->reactive()
+                                ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state)))
+                                ->placeholder('Enter project title'),
+                            Textarea::make('description')
+                                ->label('Description')
+                                ->required()
+                                ->rows(3)
+                                ->placeholder('Enter a brief description of the project'),
+                            FileUpload::make('background_image')
+                                ->label('Project Image')
+                                ->directory('projects/backgrounds')
+                                ->image(),
+                        ]),
+                    Wizard\Step::make('Project')
+                        ->schema([
+                            Builder::make('content')
+                                ->blocks([
+                                    Builder\Block::make('heading')
+                                        ->schema([
+                                            TextInput::make('content')
+                                                ->label('Heading')
+                                                ->required(),
+                                            TextInput::make('content')
+                                                ->label('Subheading')
+                                                ->required(),
+                                        ])
+                                        ->columns(1),
+                                    Builder\Block::make('paragraph')
+                                        ->schema([
+                                            RichEditor::make('content')
+                                                ->toolbarButtons([
+                                                    'attachFiles',
+                                                    'blockquote',
+                                                    'bold',
+                                                    'bulletList',
+                                                    'codeBlock',
+                                                    'h2',
+                                                    'h3',
+                                                    'italic',
+                                                    'link',
+                                                    'orderedList',
+                                                    'redo',
+                                                    'strike',
+                                                    'underline',
+                                                    'undo',
+                                                ])
+                                                ->label('Paragraph')
+                                                ->required(),
+                                        ]),
+                                    Builder\Block::make('paragraph')
+                                        ->schema([
+                                            RichEditor::make('content')
+                                                ->toolbarButtons([
+                                                    'attachFiles',
+                                                    'blockquote',
+                                                    'bold',
+                                                    'bulletList',
+                                                    'codeBlock',
+                                                    'h2',
+                                                    'h3',
+                                                    'italic',
+                                                    'link',
+                                                    'orderedList',
+                                                    'redo',
+                                                    'strike',
+                                                    'underline',
+                                                    'undo',
+                                                ])
+                                                ->label('Paragraph')
+                                                ->required(),
+                                        ]),
+                                    Builder\Block::make('image')
+                                        ->schema([
+                                            FileUpload::make('url')
+                                                ->label('Image')
+                                                ->image()
+                                                ->required(),
+                                            TextInput::make('alt')
+                                                ->label('Alt text')
+                                                ->required(),
+                                        ]),
+                                ])
+                        ]),
+                    Wizard\Step::make('Design')
+                        ->schema([
+                            // ...
+                        ]),
+                ]),
 
-                Textarea::make('description')
-                    ->label('Short Description')
-                    ->rows(3)
-                    ->placeholder('Enter a brief description of the project'),
 
-                FileUpload::make('background_image')
-                    ->label('Background Image')
-                    ->directory('projects/backgrounds')
-                    ->image()
-                    ->required(),
 
-                FileUpload::make('video')
-                    ->label('Video Upload')
-                    ->directory('projects/videos')
-                    ->acceptedFileTypes(['video/*']),
 
                 Repeater::make('images')
                     ->label('Project Images')
