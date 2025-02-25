@@ -5,10 +5,11 @@ import 'flowbite';
 document.addEventListener("DOMContentLoaded", function () {
     function applyTheme() {
         if (
-            localStorage.getItem("color-theme") === "dark" ||
-            (!localStorage.getItem("color-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+            !localStorage.getItem("color-theme") ||
+            localStorage.getItem("color-theme") === "dark"
         ) {
             document.documentElement.classList.add("dark");
+            localStorage.setItem("color-theme", "dark"); // Ensure dark mode is set
         } else {
             document.documentElement.classList.remove("dark");
         }
@@ -21,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!themeToggleDarkIcon || !themeToggleLightIcon) return;
 
         if (
-            localStorage.getItem("color-theme") === "dark" ||
-            (!localStorage.getItem("color-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches)
+            !localStorage.getItem("color-theme") ||
+            localStorage.getItem("color-theme") === "dark"
         ) {
             themeToggleLightIcon.classList.remove("hidden");
             themeToggleDarkIcon.classList.add("hidden");
@@ -69,4 +70,5 @@ document.addEventListener("DOMContentLoaded", function () {
         setupThemeToggle();
     });
 });
+
 
