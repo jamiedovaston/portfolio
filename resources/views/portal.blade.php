@@ -1,5 +1,8 @@
-<section class="header-bg w-full">
-    <div class="w-full bg-gray-100 dark:bg-gray-900 h-24"></div>
+<section class="bg-gradient-to-r from-blue-900 via-purple-800 to-black
+            bg-[length:300%_300%] animate-playstation-gradient w-full">
+    <div class="w-full bg-gray-100 dark:bg-gray-900 opacity-0 h-24">
+
+    </div>
     <div class="w-full px-4 py-24 mx-auto">
         <div class="grid w-full">
             <div class="flex justify-center items-center">

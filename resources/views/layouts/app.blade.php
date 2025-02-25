@@ -18,7 +18,7 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="h-screen font-sans antialiased bg-white dark:bg-[#1c1c20]">
+    <body class="h-screen font-sans antialiased bg-white dark:bg-[#1c1c20] bg-dots w-full">
 
     @include('layouts.navigation')
 

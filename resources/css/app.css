@@ -22,14 +22,26 @@
     background-color: rgba(18, 18, 18);
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+@layer utilities {
+    @keyframes gradient {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
 
-.header-bg {
-    background: linear-gradient(45deg, #003087, #4285F4, #EA4335, #34A853, #003087);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+    .header-bg {
+        background: linear-gradient(45deg, #003087, #4285F4, #EA4335, #34A853, #003087);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+    .bg-dots {
+        background: radial-gradient(circle, rgba(255,255,255,0.025) 2px, transparent 2px);
+        background-size: 20px 20px;
+    }
+
+    .animate-gradient {
+        background: linear-gradient(45deg, #000000, #555555, #000000, #555555);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
 }
