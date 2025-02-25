@@ -17,7 +17,7 @@ class ProjectsIndex extends Component
             ->orderBy('created_at', 'desc')
             ->paginate(9); // 9 per page
 
-        return view('projects.index', [
+        return view('Projects.index', [
             'projects' => $projects,
         ])->layout('layouts.app');
     }
