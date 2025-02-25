@@ -3,12 +3,12 @@
     <h1 class="text-4xl font-extrabold text-gray-900 dark:text-white">{{ $project->title }}</h1>
 
     <!-- Tags -->
-    <div class="my-4 flex flex-wrap gap-3">
+    <div class="absolute bottom-2 left-2 flex flex-wrap gap-2">
         @foreach ($project->tags as $tag)
-            <span class="px-3 py-1 text-sm font-semibold text-white rounded-full"
-                  style="background: {{ $tag->primary_colour }}; color: {{ $tag->secondary_colour }};">
-                {{ $tag->name }}
-            </span>
+            <span class="flex items-center px-2 py-1 text-sm font-semibold text-white rounded-full" style="background: linear-gradient(to right, {{ $tag->primary_colour }}, {{ $tag->secondary_colour }});">
+                            <img src="{{ $tag->image }}" alt="{{ $tag->name }} icon" class="w-4 h-4 mr-2">
+                            {{ $tag->name }}
+                        </span>
         @endforeach
     </div>
 

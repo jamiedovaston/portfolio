@@ -2,9 +2,9 @@
     <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Featured Projects</h2>
     <div class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
         @foreach ($featuredProjects as $project)
-            <a href="{{ route('projects.show', $project->id) }}" class="relative group w-full aspect-[16/9] rounded-lg overflow-hidden cursor-pointer shadow-lg header-bg p-1.5">
+            <a href="{{ route('projects.show', $project->id) }}" class="relative group w-full aspect-[16/9] rounded-lg overflow-hidden cursor-pointer shadow-lg bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 p-1">
                 <!-- Card Image -->
-                <div class="w-full h-full overflow-hidden bg-gray-800">
+                <div class="w-full h-full overflow-hidden bg-gray-800 rounded-md">
                     <img class="w-full h-full object-cover object-center transition duration-700 ease-in-out group-hover:brightness-50 group-hover:scale-105"
                          src="{{ $project->background_image }}"
                          alt="{{ $project->title }}"/>
@@ -26,6 +26,19 @@
                         {{ Str::limit($project->description, 100) }}
                     </p>
                 </div>
+
+                <!-- Tags -->
+                <div class="absolute bottom-2 left-2 flex flex-wrap gap-2">
+                    @foreach ($project->tags as $tag)
+                        <span class="flex items-center px-2 py-1 text-sm font-semibold text-white rounded-full" style="background: linear-gradient(to right, {{ $tag->primary_colour }}, {{ $tag->secondary_colour }});">
+                            <img src="{{ $tag->image }}" alt="{{ $tag->name }} icon" class="w-4 h-4 mr-2">
+                            {{ $tag->name }}
+                        </span>
+                    @endforeach
+                </div>
+
+
+
             </a>
         @endforeach
     </div>
