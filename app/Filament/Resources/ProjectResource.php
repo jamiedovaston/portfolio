@@ -23,6 +23,7 @@ use Filament\Forms\form;
 use App\Filament\Resources\ProjectResource\Pages;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Components\Builder;
+use Filament\Forms\Components\ColorPicker;
 
 class ProjectResource extends Resource
 {
@@ -53,6 +54,16 @@ class ProjectResource extends Resource
                                 ->label('Project Image')
                                 ->directory('projects/backgrounds')
                                 ->image(),
+                            Select::make('tags')
+                                ->label('Tags')
+                                ->multiple()
+                                ->relationship('tags', 'name')
+                                ->preload(),
+                            Select::make('categories')
+                                ->label('Categories')
+                                ->multiple()
+                                ->relationship('categories', 'name')
+                                ->preload(),
                         ]),
                     Wizard\Step::make('Project')
                         ->schema([
@@ -63,8 +74,30 @@ class ProjectResource extends Resource
                                             TextInput::make('content')
                                                 ->label('Heading')
                                                 ->required(),
+                                        ])
+                                        ->columns(1),
+                                    Builder\Block::make('subheading')
+                                        ->schema([
                                             TextInput::make('content')
                                                 ->label('Subheading')
+                                                ->required(),
+                                        ])
+                                        ->columns(1),
+                                    Builder\Block::make('Divider')
+                                        ->schema([
+                                        ])
+                                        ->columns(1),
+                                    Builder\Block::make('Github Repo')
+                                        ->schema([
+                                            TextInput::make('content')
+                                                ->label('Link')
+                                                ->required(),
+                                        ])
+                                        ->columns(1),
+                                    Builder\Block::make('Youtube Embed')
+                                        ->schema([
+                                            TextInput::make('content')
+                                                ->label('embed')
                                                 ->required(),
                                         ])
                                         ->columns(1),
@@ -90,8 +123,17 @@ class ProjectResource extends Resource
                                                 ->label('Paragraph')
                                                 ->required(),
                                         ]),
-                                    Builder\Block::make('paragraph')
+                                    Builder\Block::make('paragraph and image')
                                         ->schema([
+                                            FileUpload::make('url')
+                                                ->label('Image')
+                                                ->image()
+                                                ->required(),
+                                            Select::make('Image Location')
+                                                ->options([
+                                                    'right' => 'right',
+                                                    'left' => 'left',
+                                                ]),
                                             RichEditor::make('content')
                                                 ->toolbarButtons([
                                                     'attachFiles',
@@ -110,70 +152,60 @@ class ProjectResource extends Resource
                                                     'undo',
                                                 ])
                                                 ->label('Paragraph')
-                                                ->required(),
+                                                ->required()
+                                        ->columns(1),
                                         ]),
-                                    Builder\Block::make('image')
+                                    Builder\Block::make('Multiple Images')
+                                        ->schema([
+                                            Repeater::make('images')
+                                                ->label('Project Images')
+                                                ->schema([
+                                                    FileUpload::make('url')
+                                                        ->label('Image URL')
+                                                        ->directory('projects/images') // Correct usage here
+                                                        ->image()
+                                                        ->required(),
+                                                ])
+                                                ->minItems(1), // Ensure at least one image is added
+                                        ]),
+                                    Builder\Block::make('Multiple Images with Description')
+                                        ->schema([
+                                            Repeater::make('images')
+                                                ->label('Project Images')
+                                                ->schema([
+                                                    TextInput::make('content')
+                                                        ->label('Description')
+                                                        ->required(),
+                                                    FileUpload::make('url')
+                                                        ->label('Image URL')
+                                                        ->directory('projects/images') // Correct usage here
+                                                        ->image()
+                                                        ->required(),
+                                                ])
+                                                ->minItems(1), // Ensure at least one image is added
+                                        ]),
+                                    Builder\Block::make('Single Image')
                                         ->schema([
                                             FileUpload::make('url')
                                                 ->label('Image')
                                                 ->image()
-                                                ->required(),
-                                            TextInput::make('alt')
-                                                ->label('Alt text')
                                                 ->required(),
                                         ]),
                                 ])
                         ]),
                     Wizard\Step::make('Design')
                         ->schema([
-                            // ...
+                            ColorPicker::make('pbcs')
+                                ->label('Project Background Color Secondary'),
+                            ColorPicker::make('pbcp')
+                                ->label('Project Background Color Primary'),
+                            ColorPicker::make('plgc1')
+                                ->label('Project Logo Gradient Color 1'),
+                            ColorPicker::make('plgc2')
+                                ->label('Project Logo Gradient Color 2'),
                         ]),
-                ]),
+                ])->columnSpanFull(),
 
-
-
-
-                Repeater::make('images')
-                    ->label('Project Images')
-                    ->schema([
-                        FileUpload::make('url')
-                            ->label('Image URL')
-                            ->directory('projects/images') // Correct usage here
-                            ->image()
-                            ->required(),
-                    ])
-                    ->minItems(1), // Ensure at least one image is added
-
-                RichEditor::make('body')
-                    ->label('Detailed Content')
-                    ->placeholder('Enter detailed content about the project...'),
-
-                Repeater::make('links')
-                    ->label('Project Links')
-                    ->schema([
-                        TextInput::make('url')
-                            ->label('Link URL')
-                            ->required()
-                            ->placeholder('Enter the URL'),
-                        TextInput::make('icon')
-                            ->label('Boxicon Class')
-                            ->required()
-                            ->placeholder('Enter Boxicon class (e.g., bx-link-alt)'),
-                    ])
-                    ->minItems(0)
-                    ->collapsed(),
-
-                Select::make('tags')
-                    ->label('Tags')
-                    ->multiple()
-                    ->relationship('tags', 'name')
-                    ->preload(),
-
-                Select::make('categories')
-                    ->label('Categories')
-                    ->multiple()
-                    ->relationship('categories', 'name')
-                    ->preload(),
             ]);
     }
 
