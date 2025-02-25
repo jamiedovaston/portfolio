@@ -103,6 +103,7 @@ class ProjectResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->reorderable('position')
             ->columns([
                 ImageColumn::make('background_image')->label('Thumbnail'),
                 TextColumn::make('title')

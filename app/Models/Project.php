@@ -18,6 +18,12 @@ class Project extends Model
         'background_image',
         'body',
         'links',
+        'position',
+    ];
+
+    public $sortable = [
+        'order_column_name' => 'position',
+        'sort_when_creating' => true, // Puts new projects at the end of the list
     ];
 
     // Cast attributes to handle JSON fields

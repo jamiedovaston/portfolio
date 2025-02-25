@@ -15,7 +15,7 @@ class HomeProjects extends Component
             ->take(6) // Adjust the number of projects here
             ->get();
 
-        return view('projects', [
+        return view('projects.projects', [
             'featuredProjects' => $featuredProjects,
         ]);
     }
