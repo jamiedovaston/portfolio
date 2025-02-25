@@ -17,6 +17,6 @@ class ProjectsShow extends Component
 
     public function render()
     {
-        return view('projects.show')->layout('layouts.app');
+        return view('Projects.show')->layout('layouts.app');
     }
 }
